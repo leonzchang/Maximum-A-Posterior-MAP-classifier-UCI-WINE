@@ -35,6 +35,7 @@ class bayesian:
                        np.sqrt(np.linalg.det(sigma1)*np.linalg.det(sigma2)))
         return u12
 
+    # https://en.wikipedia.org/wiki/Bhattacharyya_distance
     def upperBound(self, p1, p2, M1, M2, sigma1, sigma2):
         # caculate error
         e12 = np.sqrt(p1*p2)*np.exp(-self.mu(M1, M2, sigma1, sigma2))
