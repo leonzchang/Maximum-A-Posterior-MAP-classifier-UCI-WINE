@@ -29,6 +29,25 @@ class bayesian:
         self.sigma3 = self.trainData[self.trainData['Label'] == 3].drop(
             ['Label'], axis=1).cov().to_numpy()
 
+    def mu(self, M1, M2, sigma1, sigma2):
+        u12 = 1/8*np.dot(np.dot(np.transpose((M2 - M1)), np.linalg.inv((sigma1+sigma2)/2)), (M2 - M1)) + \
+            1/2*np.log(np.linalg.det((sigma1+sigma2)/2) /
+                       np.sqrt(np.linalg.det(sigma1)*np.linalg.det(sigma2)))
+        return u12
+
+    def upperBound(self, p1, p2, M1, M2, sigma1, sigma2):
+        # caculate error
+        e12 = np.sqrt(p1*p2)*np.exp(-self.mu(M1, M2, sigma1, sigma2))
+        return e12
+
+    def show_upperBound(self):
+        print('Label 1,2 upper bound: ', self.upperBound(
+            self.p1, self.p2, self.M1, self.M2, self.sigma1, self.sigma2))
+        print('Label 1,3 upper bound: ', self.upperBound(
+            self.p1, self.p3, self.M1, self.M3, self.sigma1, self.sigma3))
+        print('Label 2,3 upper bound: ', self.upperBound(
+            self.p2, self.p3, self.M2, self.M3, self.sigma2, self.sigma3))
+
     # https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation
     def classifier(self, X):
         # caculate portability
@@ -83,3 +102,4 @@ if __name__ == '__main__':
 
     wine = bayesian(df_train, df_test)
     wine.accuracy()
+    wine.show_upperBound()
