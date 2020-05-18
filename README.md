@@ -1,16 +1,16 @@
 # Maximum-A-Posterior-MAP-classifier-UCI-WINE
 
-### Source
+## Source
 - Dataset link: [http://archive.ics.uci.edu/ml/datasets/wine](http://archive.ics.uci.edu/ml/datasets/wine)
 
 
-### Original Owners: 
+## Original Owners: 
 Forina, M. et al, PARVUS -An Extendible Package for Data Exploration, Classification and Correlation.Institute of Pharmaceutical and Food Analysis and Technologies, Via Brigata Salerno,16147 Genoa, Italy.
 
 Donor: Stefan Aeberhard, email: stefan '@' coral.cs.jcu.edu.au
 
 
-### Data Set Information
+## Data Set Information
 These data are the results of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars. The analysis determined the quantities of 13 constituents found in each of the three types of wines.
 
 1. Alcohol
@@ -27,7 +27,7 @@ These data are the results of a chemical analysis of wines grown in the same reg
 12. OD280/OD315 of diluted wines
 13. Proline
 
-### Relevant Papers
+## Relevant Papers
 (1)
 S. Aeberhard, D. Coomans and O. de Vel,
 Comparison of Classifiers in High Dimensional Settings,
